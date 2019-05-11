@@ -1,4 +1,6 @@
-# golang lock by key
+# Keylock
+
+Golang keylock implement, used when user want to lock action by key,uuid or sth 
 
 Easy and Fast
 
