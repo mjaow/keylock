@@ -1,0 +1,4 @@
+github.com/alibaba/pouch v0.0.0-20190510135817-0ab3003837d8 h1:EYliqgnMOLiIKmQD4WF1oZXRTDGWNKg3Gm0u46QxV7Q=
+github.com/alibaba/pouch v0.0.0-20190510135817-0ab3003837d8/go.mod h1:U18Kv0/rJR1OjsxqgEbMJU29pFSCpKCzr44GZD6T3dI=
+github.com/im7mortal/kmutex v1.0.0 h1:gSbqZF7JeZ4RTOyYqcybds2UI+GequH+pdT65X4iTvM=
+github.com/im7mortal/kmutex v1.0.0/go.mod h1:sWxFWnj0mHcQ59S1kyEWP3G+Lk+wnY/xd8IfidrKw6Y=
