@@ -1,5 +1,7 @@
 # golang lock by key
 
+Easy and Fast
+
 ## Correctness
 
 ```
