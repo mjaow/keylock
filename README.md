@@ -6,9 +6,13 @@ Easy and Fast
 
 ```
 === RUN   TestKeyMutex
---- PASS: TestKeyMutex (0.46s)
+--- PASS: TestKeyMutex (0.48s)
+=== RUN   TestNewKeyLockWithLock
+--- PASS: TestNewKeyLockWithLock (2.00s)
+=== RUN   TestNewKeyLockWithoutLock
+--- PASS: TestNewKeyLockWithoutLock (1.00s)
 PASS
-ok      klock   1.476s
+ok      klock   4.501s
 ```
 
 ## Performance
