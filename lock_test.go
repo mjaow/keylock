@@ -7,6 +7,8 @@ import (
 
 	pcmutex "github.com/alibaba/pouch/pkg/kmutex"
 	km "github.com/im7mortal/kmutex"
+
+	k8smutex "k8s.io/utils/keymutex"
 )
 
 func TestKeyMutex(t *testing.T) {
@@ -105,18 +107,20 @@ func TestNewKeyLockWithoutLock(t *testing.T) {
 func BenchmarkKeyLock(b *testing.B) {
 	keyMutex := NewKeyLock()
 
-	var count = 0
-
 	var wg sync.WaitGroup
 
-	for i := 0; i <= b.N; i++ {
-		wg.Add(1)
-		go func(i int) {
-			defer wg.Done()
-			keyMutex.Lock("a")
-			count += i
-			keyMutex.Unlock("a")
-		}(i)
+	for j := 0; j < 255; j++ {
+		k := string((rune)(j))
+		var count = 0
+		for i := 0; i <= b.N; i++ {
+			wg.Add(1)
+			go func(i int) {
+				defer wg.Done()
+				keyMutex.Lock(k)
+				count += i
+				keyMutex.Unlock(k)
+			}(i)
+		}
 	}
 
 	wg.Wait()
@@ -125,38 +129,172 @@ func BenchmarkKeyLock(b *testing.B) {
 func BenchmarkPCKeyLock(b *testing.B) {
 	keyMutex := pcmutex.New()
 
-	var count = 0
-
 	var wg sync.WaitGroup
 
-	for i := 0; i <= b.N; i++ {
-		wg.Add(1)
-		go func(i int) {
-			defer wg.Done()
-			keyMutex.Lock("a")
-			count += i
-			keyMutex.Unlock("a")
-		}(i)
+	for j := 0; j < 255; j++ {
+		k := string((rune)(j))
+		var count = 0
+		for i := 0; i <= b.N; i++ {
+			wg.Add(1)
+			go func(i int) {
+				defer wg.Done()
+				keyMutex.Lock(k)
+				count += i
+				keyMutex.Unlock(k)
+			}(i)
+		}
 	}
-
 	wg.Wait()
 }
 
 func BenchmarkKmutex(b *testing.B) {
 	keyMutex := km.New()
 
-	var count = 0
+	var wg sync.WaitGroup
+
+	for j := 0; j < 255; j++ {
+		k := string((rune)(j))
+		var count = 0
+		for i := 0; i <= b.N; i++ {
+			wg.Add(1)
+			go func(i int) {
+				defer wg.Done()
+				keyMutex.Lock(k)
+				count += i
+				keyMutex.Unlock(k)
+			}(i)
+		}
+	}
+	wg.Wait()
+}
+
+func Benchmark8sKeymutex(b *testing.B) {
+	keyMutex := k8smutex.NewHashed(0)
 
 	var wg sync.WaitGroup
 
-	for i := 0; i <= b.N; i++ {
-		wg.Add(1)
-		go func(i int) {
-			defer wg.Done()
-			keyMutex.Lock("a")
-			count += i
-			keyMutex.Unlock("a")
-		}(i)
+	for j := 0; j < 255; j++ {
+		k := string((rune)(j))
+		var count = 0
+		for i := 0; i <= b.N; i++ {
+			wg.Add(1)
+			go func(i int) {
+				defer wg.Done()
+				keyMutex.LockKey(k)
+				count += i
+				keyMutex.UnlockKey(k)
+			}(i)
+		}
+	}
+
+	wg.Wait()
+}
+
+func Benchmark8sKeymutex1(b *testing.B) {
+	keyMutex := k8smutex.NewHashed(1e1)
+
+	var wg sync.WaitGroup
+
+	for j := 0; j < 255; j++ {
+		k := string((rune)(j))
+		var count = 0
+		for i := 0; i <= b.N; i++ {
+			wg.Add(1)
+			go func(i int) {
+				defer wg.Done()
+				keyMutex.LockKey(k)
+				count += i
+				keyMutex.UnlockKey(k)
+			}(i)
+		}
+	}
+
+	wg.Wait()
+}
+
+func Benchmark8sKeymutex2(b *testing.B) {
+	keyMutex := k8smutex.NewHashed(1e2)
+
+	var wg sync.WaitGroup
+
+	for j := 0; j < 255; j++ {
+		k := string((rune)(j))
+		var count = 0
+		for i := 0; i <= b.N; i++ {
+			wg.Add(1)
+			go func(i int) {
+				defer wg.Done()
+				keyMutex.LockKey(k)
+				count += i
+				keyMutex.UnlockKey(k)
+			}(i)
+		}
+	}
+
+	wg.Wait()
+}
+
+func Benchmark8sKeymutex4(b *testing.B) {
+	keyMutex := k8smutex.NewHashed(1e4)
+
+	var wg sync.WaitGroup
+
+	for j := 0; j < 255; j++ {
+		k := string((rune)(j))
+		var count = 0
+		for i := 0; i <= b.N; i++ {
+			wg.Add(1)
+			go func(i int) {
+				defer wg.Done()
+				keyMutex.LockKey(k)
+				count += i
+				keyMutex.UnlockKey(k)
+			}(i)
+		}
+	}
+
+	wg.Wait()
+}
+
+func Benchmark8sKeymutex6(b *testing.B) {
+	keyMutex := k8smutex.NewHashed(1e6)
+
+	var wg sync.WaitGroup
+
+	for j := 0; j < 255; j++ {
+		k := string((rune)(j))
+		var count = 0
+		for i := 0; i <= b.N; i++ {
+			wg.Add(1)
+			go func(i int) {
+				defer wg.Done()
+				keyMutex.LockKey(k)
+				count += i
+				keyMutex.UnlockKey(k)
+			}(i)
+		}
+	}
+
+	wg.Wait()
+}
+
+func Benchmark8sKeymutex7(b *testing.B) {
+	keyMutex := k8smutex.NewHashed(1e7)
+
+	var wg sync.WaitGroup
+
+	for j := 0; j < 255; j++ {
+		k := string((rune)(j))
+		var count = 0
+		for i := 0; i <= b.N; i++ {
+			wg.Add(1)
+			go func(i int) {
+				defer wg.Done()
+				keyMutex.LockKey(k)
+				count += i
+				keyMutex.UnlockKey(k)
+			}(i)
+		}
 	}
 
 	wg.Wait()

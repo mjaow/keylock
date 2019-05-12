@@ -1,4 +1,14 @@
 github.com/alibaba/pouch v0.0.0-20190510135817-0ab3003837d8 h1:EYliqgnMOLiIKmQD4WF1oZXRTDGWNKg3Gm0u46QxV7Q=
 github.com/alibaba/pouch v0.0.0-20190510135817-0ab3003837d8/go.mod h1:U18Kv0/rJR1OjsxqgEbMJU29pFSCpKCzr44GZD6T3dI=
+github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/im7mortal/kmutex v1.0.0 h1:gSbqZF7JeZ4RTOyYqcybds2UI+GequH+pdT65X4iTvM=
 github.com/im7mortal/kmutex v1.0.0/go.mod h1:sWxFWnj0mHcQ59S1kyEWP3G+Lk+wnY/xd8IfidrKw6Y=
+github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
+github.com/spf13/afero v1.2.2/go.mod h1:9ZxEEn6pIJ8Rxe320qSDBk6AsU0r9pR7Q4OcevTdifk=
+github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
+github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
+golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
+k8s.io/klog v0.3.0/go.mod h1:Gq+BEi5rUBO/HRz0bTSXDUcqjScdoY3a9IHpCEIOOfk=
+k8s.io/utils v0.0.0-20190506122338-8fab8cb257d5 h1:VBM/0P5TWxwk+Nw6Z+lAw3DKgO76g90ETOiA6rfLV1Y=
+k8s.io/utils v0.0.0-20190506122338-8fab8cb257d5/go.mod h1:sZAwmy6armz5eXlNoLmJcl4F1QuKu7sr+mFQ0byX7Ew=
