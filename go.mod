@@ -1,4 +1,4 @@
-module klock
+module keylock
 
 go 1.12
 

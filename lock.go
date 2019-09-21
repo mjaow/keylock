@@ -1,4 +1,4 @@
-package klock
+package keylock
 
 import (
 	"sync"
